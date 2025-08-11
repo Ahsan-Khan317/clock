@@ -16,9 +16,9 @@ to-[#0f172a]
 ">
     <nav class=" w-full h-[50px]  p-5 pr-10 text-2xl flex justify-end items-center xl:pr-5
  
-    "><i class="fa-solid fa-volume-high cursor-pointer"></i></nav>
+    "><i class="fa-solid fa-volume-high cursor-pointer text-shadow-gray-400 text-shadow-lg"></i></nav>
 
-    <div class=" h-screen w-screen flex flex-col xl:flex-row 
+    <div class=" h-[90vh] w-screen flex flex-col xl:flex-row 
   xl:justify-start justify-center  items-center xl:items-center gap-6 xl:gap-2" >
     
     <div class=" h-[clamp(21rem,80vw,23rem)] w-[clamp(21rem,80vw,26rem)] xl:flex-wrap rounded-c-full   border-[20px]  m-9 flex-none shrink-0  shadow-2xl shadow-blue-200 flex justify-center gap-0 items-middle origin-[50%] p-1 relative  
@@ -54,17 +54,17 @@ let btn =document.querySelector("nav");let interval;
 let i =document.querySelector("nav i");
 btn.addEventListener("click",()=>{ 
 
-    if (i.className=== "fa-solid fa-volume-high cursor-pointer"){
+    if (i.className=== "fa-solid fa-volume-high cursor-pointer text-shadow-gray-400 text-shadow-lg"){
         
 interval=setInterval(() => {
     k.play();
 k.currentTime=0;
 }, 1000);
 
-        i.className ="fa-solid fa-volume-xmark cursor-pointer";
+        i.className ="fa-solid fa-volume-xmark cursor-pointer text-shadow-gray-400 text-shadow-lg";
     }
     else{
-i.className = "fa-solid fa-volume-high cursor-pointer";
+i.className = "fa-solid fa-volume-high cursor-pointer text-shadow-gray-400 text-shadow-lg";
 clearInterval(interval);
 interval=null;
 k.pause();
