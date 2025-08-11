@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="a small project of clock by using html,css and js">
-    <title>clock-html,css and js</title>
+    <title>clock-html,css and js</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/src/output.css">
 </head>
-<body class="">
+<body class="xl:overflow-y-hidden
+
+">
+    <nav class=" w-full h-[50px]  p-5 pr-10 text-2xl flex justify-end items-center xl:pr-5
+    bg-gradient-to-bl
+from-[#0f172a]
+via-[#1e1a78]
+to-[#0f172a]
+    "><i class="fa-solid fa-volume-high cursor-pointer"></i></nav>
     <div class="bg-gradient-to-bl
 from-[#0f172a]
 via-[#1e1a78]
@@ -42,13 +50,32 @@ to-[#0f172a] h-screen w-screen flex flex-col xl:flex-row
        
         let second = document.querySelector(".second");
          let minute = document.querySelector(".minute");
-          let hour= document.querySelector(".hour");
+          let hour= document.querySelector(".hour");let k=document.querySelector("audio");
+let btn =document.querySelector("nav");let interval;
+let i =document.querySelector("nav i");
+btn.addEventListener("click",()=>{ 
 
-let k=document.querySelector("audio");
-setInterval(() => {
+    if (i.className=== "fa-solid fa-volume-high cursor-pointer"){
+        
+interval=setInterval(() => {
     k.play();
 k.currentTime=0;
 }, 1000);
+
+        i.className ="fa-solid fa-volume-xmark cursor-pointer";
+    }
+    else{
+i.className = "fa-solid fa-volume-high cursor-pointer";
+clearInterval(interval);
+interval=null;
+k.pause();
+
+    }
+
+})
+
+
+
 
 setInterval(() => {
       
