@@ -45,10 +45,13 @@ to-[#0f172a] h-screen w-screen flex flex-col xl:flex-row
           let hour= document.querySelector(".hour");
 
 let k=document.querySelector("audio");
+setInterval(() => {
+    k.play();
+k.currentTime=0;
+}, 1000);
 
 setInterval(() => {
-      k.currentTime=0;
-k.play();
+      
 
 let mv = new Date();
 let ss = mv.getSeconds();
