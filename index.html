@@ -12,9 +12,9 @@
 from-[#0f172a]
 via-[#1e1a78]
 to-[#0f172a] h-screen w-screen flex flex-col xl:flex-row 
-  xl:justify-start justify-center  items-center xl:items-center gap-10 xl:gap-2" >
+  xl:justify-start justify-center  items-center xl:items-center gap-7 xl:gap-2" >
     
-    <div class=" h-[clamp(21rem,80vw,23rem)] w-[clamp(21rem,80vw,26rem)] @min-6xl:flex-wrap rounded-c-full   border-[20px]  m-12 flex-none shrink-0  shadow-2xl shadow-blue-200 flex justify-center gap-0 items-middle origin-[50%] p-1 relative  
+    <div class=" h-[clamp(21rem,80vw,23rem)] w-[clamp(21rem,80vw,26rem)] xl:flex-wrap rounded-c-full   border-[20px]  m-12 flex-none shrink-0  shadow-2xl shadow-blue-200 flex justify-center gap-0 items-middle origin-[50%] p-1 relative  
     border-t-red-500 border-r-blue-500 border-b-green-500 border-l-yellow-500 
     ">
 
@@ -34,7 +34,7 @@ to-[#0f172a] h-screen w-screen flex flex-col xl:flex-row
         <div class="text-[clamp(2rem,15vw,16rem)] xl:text-[10vw] xl:flex-none aline-center font-mono flex justify-center flex-col ">Time never <span class="text-white block text-center">stop!</span></div>
  
     </div>
-
+<audio src="/src//tic.mp3"></audio>
 
 
     <script>
@@ -43,48 +43,98 @@ to-[#0f172a] h-screen w-screen flex flex-col xl:flex-row
         let second = document.querySelector(".second");
          let minute = document.querySelector(".minute");
           let hour= document.querySelector(".hour");
-let l= 0;
-let m =0;
-let h = 0;
 
-
-
-function hr(m){
-if (m ==360){
-h +=5;
-  hour.style.transform= `rotate(${h}deg)`
-  
-}
-
-}
-function mn(l){
-if (l ==360){
-m +=5;
-  minute.style.transform= `rotate(${m}deg)`
-}
-
-
-}
-
+let k=document.querySelector("audio");
 
 setInterval(() => {
+      k.currentTime=0;
+k.play();
+
+let mv = new Date();
+let ss = mv.getSeconds();
+let mm=mv.getMinutes();
+let hh = mv.getHours();
+hour.style.transform= `rotate(${(hh%12)*30+(mm/60)*30}deg)`
+  minute.style.transform= `rotate(${mm*6+(ss/60)*6}deg)`
+ second.style.transform= `rotate(${ss*6}deg)`
 
 
-    l = l+5;
-    second.style.transform= `rotate(${l}deg)`
-mn(l);
-hr(m);
-if(l==360  ){
-    l=0
-}
-if(m==360)(
-    m=0
-)
-if (h==360){
-    h=0
-}
 
 }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // hour.style.transform= `rotate(${hh*30}deg)`
+// //  minute.style.transform= `rotate(${mm*6}deg)`
+// // second.style.transform= `rotate(${ss*6}deg)`
+// // console.log(ss);
+// // console.log(mm);
+// // console.log(hh);
+
+
+
+
+// // function hr(m){
+// // if (m ==360){
+// // h +=5;
+// //   hour.style.transform= `rotate(${h}deg)`
+// //   m=0;
+// // }
+
+// // }
+// // function mn(l){
+
+// // }
+
+
+
+// let l= 0;
+// let m =0;
+// let h = 0;
+// setInterval(() => {
+
+//     second.style.transform= `rotate(${l+(ss*6)}deg)`;
+//  l = l+6;
+//  if (l==360){
+// m +=6;
+//   minute.style.transform= `rotate(${m+(mm*6)}deg)`
+//   l=0;
+// }
+   
+// if (m==360){
+// h +=6;
+//   hour.style.transform= `rotate(${h+(hh*6)}deg)`
+//   m=0;
+//   }
+
+
+
+
+// mn(l);
+// hr(m);
+
+
+// if (h==360){
+//     h=0
+// }
+
+// }, 10);
 
 
 
